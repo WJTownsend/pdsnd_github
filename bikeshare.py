@@ -24,8 +24,8 @@ def get_filters():
     city = 'nocity'
     day = 8
     month = 0
-    while city not in ['chicago', 'new york city', 'washington']:
-        print('You may choose to examine data from Chicago, New York City, or Washington.')
+    while city not in CITY_DATA:
+        print('You may choose to examine data from: Chicago, New York City, or Washington.')
         city = input(
             'Which city would you like to get data from? ').lower().strip()
     filter = 'x'
