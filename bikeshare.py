@@ -199,8 +199,12 @@ def user_stats(df):
         gender_df = df[['Gender']]
         gender_df = df.dropna(axis=0)
         gender_df = df['Gender'].value_counts()
-        print("Male: ", gender_df.loc['Male'])
-        print("Female: ", gender_df.loc['Female'])
+        males = int(gender_df.loc['Male'])
+        females = int(gender_df.loc['Female'])
+        print("Male: ", males, "({} percent)".format(
+            (males / (males + females)) * 100))
+        print("Female: ", females, "({} percent)".format(
+            (females / (males + females)) * 100))
         print("\n")
     # Display earliest, most recent, and most common year of birth
         print("Birth year data is available for this city!")
