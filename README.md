@@ -14,7 +14,7 @@ This project uses the following files:
   * requires PanDas package
 * .csv files from Udacity containing bikesharing data for analysis (not included)
 
-In order to run this program, the user will need the .csv files in the same directory as the bikesharing.py file.  
+In order to run this program, the user will need to place the .csv files in the same directory as the bikesharing.py file.  
 
 ### Credits
 This project was built using Python 3.8.8, NumPy, and PanDas (all via Anaconda), VSCode 1.58.2, and git version 2.31.1.windows.1.  The projects were assignments from Udacity's Programming for Data Science with Python Nanodegree, where I gained a lot of the knowledge to be able to complete them.  
