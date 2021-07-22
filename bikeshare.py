@@ -30,10 +30,10 @@ def get_filters():
             'Which city would you like to get data from? ').lower().strip()
     filter = 'x'
     print('Would you like to filter the data by month (M) or day (D) or not at all (A)?')
-    while filter.lower().strip() not in ['m', 'd', 'a']:
-        filter = input('Choose a filter: ')
+    while filter not in ['m', 'd', 'a']:
+        filter = input('Choose a filter: ').lower().strip()
     # get user input for month (Jan - Jun), if desired
-    if filter.lower().strip() == 'm':
+    if filter == 'm':
         while month not in [1, 2, 3, 4, 5, 6]:
             print(
                 'Data is available for Jan (1), Feb (2), Mar (3), Apr (4), May (5), or Jun (6).')
@@ -45,7 +45,7 @@ def get_filters():
                 print("Please enter the month in numeric form (1 - 6).")
                 continue
     # get user input for day of week (Mon - Sun), if desired
-    elif filter.lower().strip() == 'd':
+    elif filter == 'd':
         while day not in [0, 1, 2, 3, 4, 5, 6]:
             print('Data is available for each day of the week, Mon (1) through Sun (7).')
             try:
