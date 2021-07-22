@@ -185,9 +185,13 @@ def user_stats(df):
     start_time = time.time()
     # Display counts of user types
     users_df = df['User Type'].value_counts()
+    subscribers = users_df.loc['Subscriber']
+    customers = users_df.loc['Customer']
     print("Here is the breakdown of customer types:\n")
-    print("Subscribers: ", users_df.loc['Subscriber'])
-    print("Customers: ", users_df.loc['Customer'])
+    print("Subscribers: ", subscribers, "({} percent)".format(
+        (subscribers / (subscribers + customers)) * 100))
+    print("Customers: ", customers, "({} percent)".format(
+        (customers / (subscribers + customers)) * 100))
     # Chicago had 1 instance of "Dependent" to be handled, NYC/Wash did not
     if 'Dependent' in users_df.index:
         print("Dependents: ", users_df.loc['Dependent'])
