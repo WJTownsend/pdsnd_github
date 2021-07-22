@@ -186,12 +186,13 @@ def user_stats(df):
     """Displays statistics on bikeshare users."""
     print('\nCalculating User Stats...\n')
     start_time = time.time()
-    # Display counts of user types
+    # Display counts of user types and percentage of whole
     users_df = df['User Type'].value_counts()
     print("Here is the breakdown of customer types:\n")
     print("Subscribers: ", users_df.loc['Subscriber'])
     print("Customers: ", users_df.loc['Customer'])
     # Chicago had 1 instance of "Dependent" to be handled, NYC/Wash did not
+    # Not providing percentage data because sample is tiny.  Can apply if it grows.
     if 'Dependent' in users_df.index:
         print("Dependents: ", users_df.loc['Dependent'])
     # Display counts of customer genders, and percentage of whole:
