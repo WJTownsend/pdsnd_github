@@ -29,11 +29,11 @@ def get_filters():
         city = input(
             'Which city would you like to get data from? ').lower().strip()
     filter = 'x'
-    print('Would you like to filter the data by month (M) or day (D) or not at all (A)?')
-    while filter not in ['m', 'd', 'a']:
+    print('Would you like to filter the data by month (M), day (D), both (B), or not at all (A)?')
+    while filter not in ['m', 'd', 'a', 'b']:
         filter = input('Choose a filter: ').lower().strip()
     # get user input for month (Jan - Jun), if desired
-    if filter == 'm':
+    if filter in ['m', 'b']:
         while month not in [1, 2, 3, 4, 5, 6]:
             print(
                 'Data is available for Jan (1), Feb (2), Mar (3), Apr (4), May (5), or Jun (6).')
@@ -45,7 +45,7 @@ def get_filters():
                 print("Please enter the month in numeric form (1 - 6).")
                 continue
     # get user input for day of week (Mon - Sun), if desired
-    elif filter == 'd':
+    if filter in ['d', 'b']:
         while day not in [0, 1, 2, 3, 4, 5, 6]:
             print('Data is available for each day of the week, Mon (1) through Sun (7).')
             try:
@@ -80,7 +80,7 @@ def load_data(city, month, day):
     # apply filtering if user changed month/day values from "all" presets
     if month != 0:
         df = df[df['start_time'].dt.month == month]
-    elif day != 8:
+    if day != 8:
         df = df[df['start_time'].dt.dayofweek == day]
     return df
 
