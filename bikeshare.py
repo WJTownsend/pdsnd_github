@@ -194,7 +194,7 @@ def user_stats(df):
     # Chicago had 1 instance of "Dependent" to be handled, NYC/Wash did not
     if 'Dependent' in users_df.index:
         print("Dependents: ", users_df.loc['Dependent'])
-    # Display counts of customer genders:
+    # Display counts of customer genders, and percentage of whole:
     print("\n")
     if 'Gender' in df.columns:
         print("Gender data is available for this city!")
